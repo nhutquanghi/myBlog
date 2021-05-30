@@ -4,6 +4,9 @@ import * as styles from '../styles/home.module.css'
 import { Link } from 'gatsby'
 
 export default function Home() {
+  // console.log(data)
+  // const { title, description } = data.site.siteMetadata
+
   return (
     <Layout>
       <section className={`header ${styles.header}`}>
@@ -13,7 +16,19 @@ export default function Home() {
           <p>Sinh viên năm cuối Khoa CNTT & Công Nghệ Phần Mềm</p>
           <Link className={`btn ${styles.btn}`} to="/projects">My Portolio Projects</Link>
         </div>
+        <img src="/happy2021.svg" alt="site banner" style={{ maxWidth: '100%' }}/>
       </section>
     </Layout>
   )
 }
+
+// export const query = graphql`
+// query SiteInfo {
+//   site{
+//    siteMetadata{
+//        title
+//        description
+//      }
+//    }
+//  }
+// `
