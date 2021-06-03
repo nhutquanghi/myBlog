@@ -1,6 +1,6 @@
 ---
 title: The Drum Stop
-stack: Next.js
+stack: JavaScript
 slug: the-drum-stop
 date: 2021-06-03T00:00:00+00:00
 thumb: ../images/thumbs/drums.png

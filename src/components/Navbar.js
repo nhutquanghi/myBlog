@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
+import * as styles from '../styles/home.module.css'
 
 export default function Navbar() {
     const data = useStaticQuery(graphql`
@@ -12,17 +13,15 @@ export default function Navbar() {
         }
     `)
 
-    const { title } = data.site.siteMetadata
+    //const { title } = data.site.siteMetadata
 
     return (
         <nav>
-            <h1>
-                <h3>{title}</h3>
-            </h1>
+            <img className={`icon ${styles.icon}`} src="/icons.svg"/>   
             <div className="links">
                 <Link to="/">Home</Link>
-                <Link to="/about">About</Link>
-                <Link to="/projects">Portfolio Projects</Link>
+                <Link to="/projects">News</Link>
+                <Link to="/about">About Me</Link>
             </div>
         </nav>
     )

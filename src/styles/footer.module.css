@@ -1,0 +1,29 @@
+.footer__form {
+    padding: 40px 60px;
+    /* background-color: #8243bd; */
+    border-radius: 10px;
+}
+
+.section__title span:last-child {
+    color: #ff6b6b;
+}
+.section__title {
+    font-size: 3.3rem;
+    text-align: center;
+    margin: 0 0 50px;
+    color: rgba(0, 49, 52, 0.9);
+    font-weight: 500;
+}
+.section__title span:first-child {
+    border-bottom: 3px solid #ff6b6b;
+    padding-bottom: 3px;
+}
+
+.row{
+    text-align: center;
+    font-weight: 500;
+    font-size: 15px;
+}
+.row ul li{
+    list-style-type: none;
+}

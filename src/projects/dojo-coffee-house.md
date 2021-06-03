@@ -1,17 +1,26 @@
 ---
-title: The Dojo Coffee House
+title: HTML & CSS 
 stack: HTML & CSS
-slug: the-dojo-coffee-house
+slug: dojo-coffee-house
 date: 2021-05-30T00:00:00+00:00
 thumb: ../images/thumbs/coffee.png
 featuredImg: ../images/featured/coffee-banner.png
 ---
 
-**Lorem ipsum dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+**Giới Thiệu Nội Dung Khóa Học HTML CSS Và Cài Đặt Phần Mềm Cần Thiết**
 
-### Lorem ipsum dolor sit amet
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Front-end: thiết kế giao diện người dùng. Một số ngôn ngữ thường dùng là html, css, javascript (bao gồm thư viện và framework của javascript)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Back-end: viết mã nguồn cho máy chủ để nhận những yêu cầu của người dùng, xử lý, truy xuất dữ liệu và trả về kết quả. Ngôn ngữ lập trình cho back-end có thể kể đến PHP, Java, C#, và ngay cả javascript.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+**Các Phần mềm cần thiết**
+
+[Sublime Text 3 - **Tải về**](https://www.sublimetext.com/)
+
+Chúng ta sẽ viết code html và css bằng sublime. Công cụ này giúp quản lý code dễ dàng và trực quan hơn. Cũng như rất gọn nhẹ, phù hợp với các máy có cấu hình thấp.
+
+![alt](https://www.sublimetext.com/screenshots/3.2/git_diff@2x.png)
+
+[Trình duyệt Google Chrome – **Tải về**](https://www.google.com/chrome/?brand=BNSD&gclid=Cj0KCQjw2NyFBhDoARIsAMtHtZ7FtUH8ZbHxSEZptRUf3kPOtBmf9ZDV4PN9mG-lfTw5vNL77lnbdzAaAh3wEALw_wcB&gclsrc=aw.ds)
+
+
