@@ -24,19 +24,6 @@ module.exports = {
         path: `${__dirname}/src/images/`,
       },
     },
-    {
-      resolve: `gatsby-source-cosmicjs`,
-      options: {
-        bucketSlug: ``, // Get this value in Bucket > Settings
-        objectTypes: [`posts`],
-        // If you have enabled read_key to fetch data (optional).
-        apiAccess: {
-          read_key: ``, // Get this value in Bucket > Settings
-        },
-        localMedia: true, // Download media locally for gatsby image (optional)
-        limit: 1000, // The number of Objects to fetch on each request (optional)
-      }
-    },
   ],
   siteMetadata: {
     title: 'Samson',
