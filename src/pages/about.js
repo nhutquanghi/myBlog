@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import Layout from "../components/Layout"
 import * as styles from '../styles/about.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faLinkedinIn, faGithubSquare } from '@fortawesome/free-brands-svg-icons'
-import { faPeopleCarry,faAddressBook, faMapMarked, faMailBulk } from "@fortawesome/free-solid-svg-icons";
+import { faPeopleCarry,faAddressBook, faMapMarked, faMailBulk, faArrowAltCircleLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default function About() {
     return (
@@ -24,7 +25,7 @@ export default function About() {
                                             <FontAwesomeIcon icon={faPeopleCarry} size="2x"/>
                                         </span>    
                                         <span className={`about__text ${styles.about__text}`}>
-                                            Name: Tran Huynh Nhut Quang
+                                            <b>Name:</b> <i>Tran Huynh Nhut Quang</i>
                                         </span> 
                                     </p>
                                 </li>
@@ -34,7 +35,7 @@ export default function About() {
                                             <FontAwesomeIcon icon={faMailBulk} size="2x"/>
                                         </span>    
                                         <span className={`about__text ${styles.about__text}`}>
-                                            Email: thnquang.digistar.vn@gmail.com
+                                            <b>Email:</b> <i>thnquang.digistar.vn@gmail.com</i>
                                         </span> 
                                     </p>
                                 </li>
@@ -44,8 +45,8 @@ export default function About() {
                                             <FontAwesomeIcon icon={faFacebookSquare} size="2x"/>
                                         </span>    
                                         <span className={`about__text ${styles.about__text}`}>
-                                            Facebook: nhutquang99
-                                        </span> 
+                                        <b>Facebook:</b> <i>nhutquang99</i>
+                                        </span>
                                     </p>
                                 </li>
                                 <li>
@@ -54,7 +55,7 @@ export default function About() {
                                             <FontAwesomeIcon icon={faGithubSquare} size="2x"/>
                                         </span>    
                                         <span className={`about__text ${styles.about__text}`}>
-                                            GitHub: nhutquanghello
+                                            <b>GitHub:</b> nhutquanghello
                                         </span> 
                                     </p>
                                 </li>
@@ -64,7 +65,7 @@ export default function About() {
                                             <FontAwesomeIcon icon={faAddressBook} size="2x"/>
                                         </span>    
                                         <span className={`about__text ${styles.about__text}`}>
-                                            Phone: 0352142080
+                                            <b>Phone:</b> <i>0352142080</i>
                                         </span> 
                                     </p>
                                 </li>
@@ -74,11 +75,12 @@ export default function About() {
                                             <FontAwesomeIcon icon={faMapMarked} size="2x"/>
                                         </span>    
                                         <span className={`about__text ${styles.about__text}`}>
-                                            Address: 8/12c Chu Van An Residence, Ward 26, Binh Thanh District
+                                            <b>Address:</b> <i>8/12c Chu Van An Residence, Ward 26, Binh Thanh District</i>
                                         </span> 
                                     </p>
                                 </li>
                             </ul>
+                            <Link to="/"><FontAwesomeIcon icon={faArrowAltCircleLeft}/><span> Go back</span></Link>
                         </div>
                     </div>
                 </div>

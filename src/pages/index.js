@@ -76,6 +76,44 @@ export default function Home({ data }) {
           </div>
         </div>
       </section>
+
+      <section className={`resume ${styles.resume}`}>
+        <h1 className={`section__title ${styles.section__title}`}>
+            <span>My</span>
+            <span>Resume</span>
+          </h1>
+        <div className={`resume__container ${styles.resume__container}`}>
+          
+          <div className={`resume__block ${styles.resume__block}`}>
+            <div className={`resume__content ${styles.resume__content}`}>
+              <h4>Hutech University</h4>
+              <p className={`block__time ${styles.block__time}`}>September 2017 - Present</p>
+              <div className={`block__text ${styles.block__text}`}>
+                <ul>
+                  <li className={`engineer ${styles.engineer}`}>Information Technology Engineer</li>
+                  <li>Participate in classroom projects on student club management and e-commerce websites</li>
+                  <li>GPA: 3.2/4</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className={`resume__block ${styles.resume__block}`}>
+            <div className={`resume__content ${styles.resume__content}`}>
+              <h4>Personal Projects</h4>
+              <p className={`block__time ${styles.block__time}`}>May 2020 - Present</p>
+              <div className={`block__text ${styles.block__text}`}>
+                <ul>
+                  <li>Learning and practicing with many Front-end projects</li>
+                  <li>Learn about frameworks to apply to your own projects</li>
+                  <li>Learn more Back-end to support the project</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </section>
     </Layout>
   )
 }
@@ -84,7 +122,7 @@ export const query = graphql`
 query Banner {
   file(relativePath: {eq: "avatar1.jpg"}) {
     childImageSharp {
-      fluid (maxWidth: 700) {
+      fluid (maxWidth: 1000) {
         ...GatsbyImageSharpFluid
       }
     }

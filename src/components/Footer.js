@@ -4,6 +4,7 @@ import * as styles from '../styles/footer.module.css'
 export default function Footer() {
     return (
         <footer className={`footer ${styles.footer}`}>
+            <hr/>
             <div className={`footer__form ${styles.footer__form}`}>
                 <div className={`footer__container ${styles.footer__container}`}>
                     <h1 className={`section__title ${styles.section__title}`}>Get in touch with
