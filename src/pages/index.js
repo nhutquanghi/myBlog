@@ -3,7 +3,6 @@ import Layout from "../components/Layout"
 import * as styles from '../styles/home.module.css'
 import { graphql,Link } from 'gatsby'
 import Img from 'gatsby-image'
-import Footer from "../components/Footer"
 
 export default function Home({ data }) {
   // console.log(data)
@@ -15,7 +14,7 @@ export default function Home({ data }) {
           <h2>Intern-Front-End</h2>
           <h3>FPT-TELECOM</h3>
           <p>A final year student at Ho Chi Minh City University of Technology</p>
-          <Link className={`btn ${styles.btn}`} to="/projects">About Me</Link>
+          <Link className={`btn ${styles.btn}`} to="/about">About Me</Link>
         </div>
         <Img className={`avatar ${styles.avatar}`} fluid={ data.file.childImageSharp.fluid } /> 
       </section>
