@@ -4,7 +4,7 @@ import Layout from "../components/Layout"
 export default function Contact() {
     return (
         <Layout>
-            <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+            <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" netlify>
                 <label>Name: <input name="name" placeholder="Your Name" type="text" /></label>
                 <button>Send</button>
             </form>
