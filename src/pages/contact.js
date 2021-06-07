@@ -6,12 +6,13 @@ export default function Contact() {
         <Layout>
             <form 
                 name="contact" 
-                method="post" 
+                method="POST" 
                 data-netlify="true" 
                 data-netlify-honeypot="bot-field" 
             >
                 <input name="name" placeholder="Your Name" type="text" />
-                <button>Send</button>
+                
+                <button type="submit">Send</button>
             </form>
         </Layout>
     )
