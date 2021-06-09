@@ -3,12 +3,22 @@ import Layout from "../components/Layout"
 import * as styles from '../styles/contact.module.css'
 
 //Đối tượng `Validator`
-function Validator(options){
+function Validator(options) {
+
+    function getParent(element, selector){
+        while(element.parentElement){
+            if(element.parentElement.matches(selector)){
+                return element.parentElement;
+            }
+            element = element.parentElement;
+        }
+    }
+
     var selectorRules = [];
     //Hàm thực hiện validate 
     function validate(inputElement, rule){
         var errorMessage;  
-        var errorElement = inputElement.parentElement.querySelector(options.errorSelector);      
+        var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);      
         
         //Lấy ra các rule của selector 
         var rules = selectorRules[rule.selector];
@@ -27,11 +37,43 @@ function Validator(options){
             errorElement.innerText = '';
             inputElement.parentElement.classList.remove('invalid');
         }
+
+        return !errorMessage;
     }
 
     //Lấy element của form cần validate
-    var formElement = document.querySelector(options.form);
-    if(formElement){
+    var formElement = window.querySelector(options.form);
+    if(formElement) {
+        //khi submit form
+        formElement.onsubmit = function (e){
+           e.preventDefault(); 
+           var isFormValid = true;
+           //Lặp qua từng rules và validate
+           options.rules.forEach(function (rule) {
+                var inputElement = formElement.querySelector(rule.selector);
+                var isValid = validate(inputElement, rule);
+                if(!isValid){
+                    isFormValid = false;
+                }
+           });  
+
+           if(isFormValid){
+               //Trường hợp submit với javascript
+               if(typeof options.onSubmit === 'function'){
+                    var enableInputs = formElement.querySelectorAll('[name]');
+                    var formValues = Array.from(enableInputs).reduce(function(values, input){
+                        values[input.name] = input.value;
+                        return values;
+                    }, {});
+                   options.onSubmit(formValues);
+               }    
+               //Trường hợp submit với hành vi mặc định html
+               else{
+                    formElement.submit();
+               }
+           }
+        }
+        //Lặp qua mỗi rule và xử lý(lắng nghe sự kiện blur, input,..)   
         options.rules.forEach(function (rule) {
 
             //Lưu lại các rules cho mỗi input
@@ -105,6 +147,7 @@ Validator.isConfirmed = function(selector, getConfirmValue, message){
 
 Validator({
     form: '#form-1', 
+    formGroupSelector: '.form-group',
     errorSelector: '.formMessage',
     rules: [
         Validator.isRequired('#fullname' , 'Vui lòng nhập tên đầy đủ của bạn'),
@@ -119,14 +162,18 @@ Validator({
         Validator.isConfirmed('#password_confirmation', function() {
             return document.querySelector('#form-1 #password').value;
         }, 'Mật khẩu nhập lại không chính xác')
-    ]
+    ],
+    onSubmit: function(data){
+        //Call API
+        console.log(data);
+    }
 });
 
 
 export default function Contact() {
     return (
         <Layout>
-                <form className={`form ${styles.form}`} name="form" id="form-1" action="#">
+                <form className={`form ${styles.form}`} name="form-1" id="form-1" action="#">
 
                     <h3 className={`pageTitile ${styles.pageTitle} ${styles.title}` }>Contact Us </h3>
                     <p className={`secondaryTitle ${styles.secondaryTitle} ${styles.title}`}>Please fill this form to contact us.</p>
