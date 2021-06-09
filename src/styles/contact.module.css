@@ -1,6 +1,6 @@
 .form {
     max-width: 1200px;
-    width: 80%;
+    width: 70%;
     margin: 0  auto;
     background-color: #e6f4f1;
     overflow: hidden;
@@ -28,9 +28,19 @@
   }
   .name {
     background-color: #ebebeb;
-    color: white;
+    color: black;
   }
   .name:hover {
+    border-bottom: 5px solid #0e3721;
+    height: 30px;
+    width: 380px;
+    transition: ease 0.5s;
+  }
+  .phone{
+    background-color: #ebebeb;
+    color: black;
+  }
+  .phone:hover{
     border-bottom: 5px solid #0e3721;
     height: 30px;
     width: 380px;
@@ -69,13 +79,21 @@
     width: 380px;
     transition: ease 0.5s;
   }
-  .submit {
+
+  .formLable{
+    display: block;
+    font-family: sans-serif;
+    margin: 5px auto 5px;
+    width: 300px;
+  }
+
+  .formSubmit {
     width: 200px;
     color: white;
-    background-color: #0e3721;
+    background-color: #15864a;
     font-size: 20px;
   }
-  .submit:hover {
+  .formSubmit:hover {
     box-shadow: 15px 15px 15px 5px rgba(78, 72, 77, 0.219);
     border-top: 5px solid #0e3750;
     border-radius: 0%;
@@ -100,3 +118,12 @@
       transform: translate(0, 8px);
     }
   } 
+
+  .formMessage{
+    font-size: 14px;
+    color: red;
+    margin: 5px auto 5px;
+    display: block;
+    width: 300px;
+    margin-top: 10px;
+  }
