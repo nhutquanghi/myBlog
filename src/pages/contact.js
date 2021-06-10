@@ -26,23 +26,32 @@ function Validator(options) {
         //Lặp qua từng rules và kiểm tra
         //Nếu có lỗi thì dừng việc kiểm tra
         for(var i = 0; i < rules.length; i++){
-            errorMessage = rules[i](inputElement.value);
+            switch(inputElement.type){
+                case 'radio':
+                case 'checkbox':
+                    errorMessage = rules[i](
+                        formElement.querySelector(rule.selector + ':checked')
+                    );
+                    break;
+                default:
+                    errorMessage = rules[i](inputElement.value);
+            }
             if(errorMessage) break;
         }
         
         if(errorMessage){
             errorElement.innerText = errorMessage;
-            inputElement.parentElement.classList.add('invalid');
+            getParent(inputElement, options.formGroupSelector).classList.add('invalid');
         }else{
             errorElement.innerText = '';
-            inputElement.parentElement.classList.remove('invalid');
+            getParent(inputElement, options.formGroupSelector).classList.remove('invalid');
         }
 
         return !errorMessage;
     }
 
     //Lấy element của form cần validate
-    var formElement = window.querySelector(options.form);
+    var formElement = document.querySelector(options.form);
     if(formElement) {
         //khi submit form
         formElement.onsubmit = function (e){
@@ -62,20 +71,33 @@ function Validator(options) {
                if(typeof options.onSubmit === 'function'){
                     var enableInputs = formElement.querySelectorAll('[name]');
                     var formValues = Array.from(enableInputs).reduce(function(values, input){
-                        values[input.name] = input.value;
+                        
+                        switch(input.type){
+                            case 'radio':
+                                values[input.name] = formElement.querySelector('input[name="' + input.name + '"]:checked').value;
+                            case 'checkbox':
+                                // if(!input.matches(':checked')) return false;
+                                // if(!Array.isArray(values[input.name])){
+                                //     values[input.name] = [];
+                                // }
+                                // values[input.name].push(input.value);
+                                break;
+                            default: 
+                                values[input.name] = input.value;
+                        }
+
                         return values;
                     }, {});
                    options.onSubmit(formValues);
                }    
                //Trường hợp submit với hành vi mặc định html
-               else{
+                else{
                     formElement.submit();
-               }
+                }
            }
         }
         //Lặp qua mỗi rule và xử lý(lắng nghe sự kiện blur, input,..)   
         options.rules.forEach(function (rule) {
-
             //Lưu lại các rules cho mỗi input
             if(Array.isArray(selectorRules[rule.selector])){
                 selectorRules[rule.selector].push(rule.test);
@@ -84,21 +106,23 @@ function Validator(options) {
             }
 
 
-            var inputElement = formElement.querySelector(rule.selector);
-            
-            if(inputElement){
-                //Xử lý trường hợp blur khỏi input
-                inputElement.onblur = function(){
-                    validate(inputElement, rule);
-                }
-                //Xử lý người dùng nhập vào input
-                inputElement.oninput = function(){
-                    var errorElement = inputElement.parentElement.querySelector(options.errorSelector);     
+            var inputElements = formElement.querySelectorAll(rule.selector);
 
-                    errorElement.innerText = '';
-                    inputElement.parentElement.classList.remove('invalid');
+            Array.from(inputElements).forEach(function(inputElement){
+                if(inputElement){
+                    //Xử lý trường hợp blur khỏi input
+                    inputElement.onblur = function(){
+                        validate(inputElement, rule);
+                    }
+                    //Xử lý người dùng nhập vào input
+                    inputElement.oninput = function(){
+                        var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);     
+    
+                        errorElement.innerText = '';
+                        getParent(inputElement, options.formGroupSelector).classList.remove('invalid');
+                    }
                 }
-            }
+            });
         });
     }
 }
@@ -112,7 +136,7 @@ Validator.isRequired = function(selector, message){
     return {
         selector: selector,
         test: function(value) {
-            return value.trim() ? undefined: message || 'Vui lòng nhập trường này'
+            return value ? undefined: message || 'Vui lòng nhập trường này'
         }
     };
 }
@@ -151,12 +175,10 @@ Validator({
     errorSelector: '.formMessage',
     rules: [
         Validator.isRequired('#fullname' , 'Vui lòng nhập tên đầy đủ của bạn'),
-
         Validator.isRequired('#email'),
         Validator.isEmail('#email'),
-
         Validator.minLength('#phone', 10),
-
+        // Validator.isRequired('input[name="gender"]'),
         Validator.minLength('#password', 6),
         Validator.isRequired('#password_confirmation'),
         Validator.isConfirmed('#password_confirmation', function() {
@@ -173,8 +195,8 @@ Validator({
 export default function Contact() {
     return (
         <Layout>
-                <form className={`form ${styles.form}`} name="form-1" id="form-1" action="#">
-
+                <form className={`form ${styles.form}`} name="form-1" id="form-1" action="/success" data-netlify="true">
+                    <input type="hidden" name="form-name" value="Contact Form" />
                     <h3 className={`pageTitile ${styles.pageTitle} ${styles.title}` }>Contact Us </h3>
                     <p className={`secondaryTitle ${styles.secondaryTitle} ${styles.title}`}>Please fill this form to contact us.</p>
 
@@ -209,6 +231,23 @@ export default function Contact() {
                         <span className={`formMessage ${styles.formMessage}`}></span>
                         <input className={`email ${styles.email} ${styles.formEntry}`} id="password_confirmation" name="password_confirmation" type="password" placeholder="Nhập lại mật khẩu của bạn" />
                     </div>
+
+                    {/* <div className={`form-group`}>
+                        <label htmlFor="gender" className={`formLable ${styles.formLable}`}>Giới tính</label>
+                        <span className={`formMessage ${styles.formMessage}`}></span>
+                        <div className={`formGender ${styles.formGender}`}>
+                            <input name="gender" type="radio" value="male" />
+                            Nam
+                        </div>
+                        <div>
+                            <input name="gender" type="radio" value="female" />
+                            Nữ
+                        </div>
+                        <div>
+                            <input name="gender" type="radio" value="order" />
+                            Khác
+                        </div>
+                    </div> */}
 
                     <div className={`form-group`}>
                         <label htmlFor="message" className={`formLable ${styles.formLable}`}>Message</label>

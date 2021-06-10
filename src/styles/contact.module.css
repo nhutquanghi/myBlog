@@ -8,7 +8,7 @@
     padding: 30px 20px 30px;
     box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
     margin-bottom: 50px;
-    color: black;
+    color: rgb(255, 220, 220);
   }
   ::-webkit-input-placeholder {
     font-size: 1.3em;
@@ -31,20 +31,14 @@
     color: black;
   }
   .name:hover {
-    border-bottom: 5px solid #0e3721;
-    height: 30px;
-    width: 380px;
-    transition: ease 0.5s;
+    border: 1px solid #09a752;
   }
   .phone{
     background-color: #ebebeb;
     color: black;
   }
   .phone:hover{
-    border-bottom: 5px solid #0e3721;
-    height: 30px;
-    width: 380px;
-    transition: ease 0.5s;
+    border: 1px solid #09a752;
   }
   .formEntry {
     display: block;
@@ -57,14 +51,10 @@
   }
   .email {
     background-color: #ebebeb;
-    height: 2em;
   }
   
-  .email:hover {
-    border-bottom: 5px solid #0e3721;
-    height: 30px;
-    width: 380px;
-    transition: ease 0.5s;
+  .email:hover {  
+    border: 1px solid #09a752;
   }
   
   .message {
@@ -74,10 +64,7 @@
   }
   
   .message:hover {
-    border-bottom: 5px solid #0e3721;
-    height: 12em;
-    width: 380px;
-    transition: ease 0.5s;
+    border: 1px solid #09a752;
   }
 
   .formLable{
@@ -88,26 +75,16 @@
   }
 
   .formSubmit {
-    width: 200px;
-    color: white;
+    width: 150px;
+    display: block;
+    color: rgb(0, 0, 0);
     background-color: #15864a;
     font-size: 20px;
+    margin: 10px auto 5px;
   }
   .formSubmit:hover {
     box-shadow: 15px 15px 15px 5px rgba(78, 72, 77, 0.219);
-    border-top: 5px solid #0e3750;
-    border-radius: 0%;
-  }
-  .reset{
-    width: 200px;
-    color: white;
-    background-color: #f78989;
-    font-size: 20px;
-  }
-  .reset:hover{
-    box-shadow: 15px 15px 15px 5px rgba(78, 72, 77, 0.219);
-    border-top: 5px solid #0e3750;
-    border-radius: 0%;
+    color: rgb(240, 240, 240);
   }
 
   @keyframes bounce {
